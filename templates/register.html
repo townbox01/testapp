@@ -1,0 +1,174 @@
+{% comment %} <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Registeration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <form action="register" method="post">
+      {% csrf_token %}
+
+      <input type="text" name="first_name" placeholder="First Name" /><br />
+      <input type="text" name="last_name" placeholder="Last Name" /><br />
+      <input type="text" name="username" placeholder="Username" /><br />
+      <input type="email" name="email" placeholder="email" /><br />
+      <input type="password" name="password1" placeholder="Password" /><br />
+      <input
+        type="password"
+        name="password2"
+        placeholder="Confirm Password"
+      /><br />
+      <input type="Submit" />
+    </form>
+
+    <div>
+      {% for message in messages %}
+      <h3>{{message}}</h3>
+      {% endfor %}
+    </div>
+  </body>
+</html>
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup and Signin Forms</title>
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <div
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <div class="row w-50">
+        <!-- Signup Form -->
+        <div class="col-md-6 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Signup</h5>
+              <form action="/register" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="signupName" class="form-label">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="first_name"
+                    placeholder="Enter your name"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="signupName" class="form-label">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="last_name"
+                    placeholder="Enter your name"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="signupName" class="form-label">User Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    placeholder="Enter your name"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="signupEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="signupPassword" class="form-label"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password1"
+                    placeholder="Create a password"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="signupPassword" class="form-label"
+                    >Repeat Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password2"
+                    placeholder="Create a password"
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                  Signup
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Signin Form -->
+        {% comment %}
+        <div class="col-md-6 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Signin</h5>
+              {% endcomment %} {% comment %}
+              <form>
+                <div class="mb-3">
+                  <label for="signinEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="signinEmail"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="signinPassword" class="form-label"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="signinPassword"
+                    placeholder="Enter your password"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Signin
+                </button>
+              </form>
+              {% endcomment %} {% comment %}
+            </div>
+          </div>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
